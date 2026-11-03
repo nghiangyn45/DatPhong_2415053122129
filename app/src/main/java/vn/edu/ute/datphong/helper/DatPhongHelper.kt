@@ -26,4 +26,9 @@ object DatPhongHelper {
         val parts = don.ngayNhan.split("/")
         val ddMM = if (parts.size >= 2) parts[0] + parts[1] else "0101"
         return "DP129-$ddMM-${don.maLoaiPhong.uppercase()}"
+    }
+    fun locTheoSoKhach(ds: List<LoaiPhong>, soKhach: Int): List<LoaiPhong> {
+        return ds.filter { it.sucChua >= soKhach }
+            .sortedWith(compareByDescending<LoaiPhong> { it.sucChua }.thenBy { it.giaMotDem })
+    }
 }
