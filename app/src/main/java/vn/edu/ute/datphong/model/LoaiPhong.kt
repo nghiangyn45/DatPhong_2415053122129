@@ -1,4 +1,4 @@
-package vn.edu.ute.datphong
+package vn.edu.ute.datphong.model
 
 data class LoaiPhong(
     val ma: String,
@@ -6,4 +6,3 @@ data class LoaiPhong(
     val giaMotDem: Long,
     val sucChua: Int
 )
-

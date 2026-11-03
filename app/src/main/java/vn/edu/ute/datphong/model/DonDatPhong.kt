@@ -1,5 +1,7 @@
-package vn.edu.ute.datphong
+package vn.edu.ute.datphong.model
+
 import java.io.Serializable
+
 data class DonDatPhong(
     val hoTen: String,
     val sdt: String,
