@@ -3,3 +3,112 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:title="Xác nhận đặt phòng"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/txtHoTen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Họ tên: "
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/txtSdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Số điện thoại: "
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email: "
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/txtLoaiPhong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loại phòng: "
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/txtNgayNhan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ngày nhận: "
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/txtSoDem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Số đêm: "
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/txtSoKhach"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Số khách: "
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"/>
+            <TextView
+                android:id="@+id/txtTongTien"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tổng tiền: "
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/design_default_color_primary"
+                android:layout_marginBottom="16dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSua"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SỬA LẠI"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_marginBottom="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnXacNhan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="XÁC NHẬN ĐẶT PHÒNG"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
