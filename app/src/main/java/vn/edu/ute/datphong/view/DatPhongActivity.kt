@@ -86,3 +86,58 @@ class DatPhongActivity : AppCompatActivity() {
                 binding.tilNgayNhan.error = "Ngày định dạng dd/MM/yyyy (2026-2029)"
                 isValid = false
             } else binding.tilNgayNhan.error = null
+            if (soDem !in 1..19) {
+                binding.tilSoDem.error = "Số đêm từ 1 đến 19"
+                isValid = false
+            } else binding.tilSoDem.error = null
+            if (!DatPhongHelper.hopLeSoKhach(selectedLoaiPhong, soKhach)) {
+                binding.tilSoKhach.error = "Số khách vượt quá sức chứa cho phép"
+                isValid = false
+            } else binding.tilSoKhach.error = null
+            if (!isValid) {
+                Snackbar.make(binding.root, "Vui lòng kiểm tra lại thông tin", Snackbar.LENGTH_LONG)
+                    .show()
+            } else {
+                val don = DonDatPhong(
+                    hoTen.trim(),
+                    sdt.trim(),
+                    email.trim(),
+                    selectedLoaiPhong.ma,
+                    ngay.trim(),
+                    soDem,
+                    soKhach
+                )
+                val tongTien =
+                    DatPhongHelper.tinhTienPhong_2415053122129(selectedLoaiPhong, soDem, soKhach)
+                val intent = Intent(this, XacNhanActivity::class.java).apply {
+                    putExtra("don_dat_phong", don)
+                    putExtra("tong_tien", tongTien)
+                }
+                xacNhanLauncher.launch(intent)
+            }
+        }
+    }
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("selected_ma_phong", selectedLoaiPhong.ma)
+    }
+    fun updateLoaiPhongUI() {
+        binding.txtLoaiPhong.text = "Loại phòng: ${selectedLoaiPhong.ten} - ${selectedLoaiPhong.giaMotDem.dinhDangTien()}/đêm"
+    }
+    private fun triggerTamTinh() {
+        val soDem = binding.edtSoDem.text.toString().toIntOrNull() ?: 0
+        val soKhach = binding.edtSoKhach.text.toString().toIntOrNull() ?: 0
+        val tien = DatPhongHelper.tinhTienPhong_2415053122129(selectedLoaiPhong, soDem, soKhach)
+        binding.txtTamTinh.text = "Tạm tính: ${tien.dinhDangTien()}"
+    }
+
+    private fun clearForm() {
+        binding.edtHoTen.text?.clear()
+        binding.edtSdt.text?.clear()
+        binding.edtEmail.text?.clear()
+        binding.edtNgayNhan.text?.clear()
+        binding.edtSoDem.text?.clear()
+        binding.edtSoKhach.text?.clear()
+        binding.txtTamTinh.text = "Tạm tính: 0 đ"
+    }
+    }
