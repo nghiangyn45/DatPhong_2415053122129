@@ -33,7 +33,6 @@
             app:cardCornerRadius="8dp"
             android:layout_marginTop="8dp">
 
-            androidx.constraintlayout.widget.ConstraintLayout
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -133,3 +132,66 @@
                     android:id="@+id/tilSoKhach"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:errorEnabled="true"
+                    android:hint="Số khách"
+                    app:layout_constraintTop_toBottomOf="@id/tilNgayNhan"
+                    app:layout_constraintStart_toEndOf="@+id/tilSoDem"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="8dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtSoKhach"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/txtLoaiPhong"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Loại phòng: Phòng Tiêu Chuẩn UTE - 500.000 đ/đêm"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/tilSoDem"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="16dp"/>
+
+                <TextView
+                    android:id="@+id/txtTamTinh"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Tạm tính: 0 đ"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/design_default_color_primary"
+                    app:layout_constraintTop_toBottomOf="@id/txtLoaiPhong"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="12dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnChonPhong"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="CHỌN LOẠI PHÒNG"
+                    app:layout_constraintTop_toBottomOf="@id/txtTamTinh"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="16dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDatPhong"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="ĐẶT PHÒNG"
+                    app:layout_constraintTop_toBottomOf="@id/btnChonPhong"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="8dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
